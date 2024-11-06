@@ -1,0 +1,9 @@
+.env
+docs
+
+mysql_data
+
+**/.mvn
+/.idea
+
+**/target
