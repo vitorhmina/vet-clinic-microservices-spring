@@ -15,6 +15,12 @@ spring:
             - Path=/api/user/**
           filters:
             - name: JwtFilter
+        - id: pet-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/pet/**
+          filters:
+            - name: JwtFilter
 
 logging:
   level:

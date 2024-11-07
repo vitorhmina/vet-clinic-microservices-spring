@@ -28,11 +28,11 @@ public class UserController {
         return "User Created Successfully";
     }
 
-    @PostMapping("/api/patient")
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public String createClient(@RequestBody UserRequest userRequest) {
         userService.createClient(userRequest);
-        return "Patient Created Successfully";
+        return "Client Created Successfully";
     }
 
     @GetMapping

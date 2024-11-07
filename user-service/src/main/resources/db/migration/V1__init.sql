@@ -5,23 +5,14 @@ CREATE TABLE IF NOT EXISTS t_users (
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     phone_number VARCHAR(20),
-    date_of_birth DATE,
-    gender VARCHAR(10),
-    address VARCHAR(255),
-    city VARCHAR(100),
-    state VARCHAR(50),
-    postal_code VARCHAR(20),
-    country VARCHAR(100),
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     deleted BOOLEAN DEFAULT FALSE,
     user_type VARCHAR(20) NOT NULL
 );
 
-INSERT INTO t_users (first_name, last_name, email, password, phone_number, date_of_birth, gender, address, city, state, postal_code, country, created_at, updated_at, deleted, user_type)
+INSERT INTO t_users (first_name, last_name, email, password, phone_number, created_at, deleted, user_type)
 VALUES
-    ('John', 'Doe', 'john.doe@example.com', 'password123', '123-456-7890', '1990-01-01', 'Male', '123 Main St', 'Anytown', 'CA', '90210', 'USA', NOW(), NOW(), FALSE, 'PATIENT'),
-    ('Alice', 'Smith', 'alice.smith@example.com', 'password123', '098-765-4321', '1985-05-15', 'Female', '456 Oak St', 'Othertown', 'TX', '75001', 'USA', NOW(), NOW(), FALSE, 'PATIENT'),
-    ('James', 'Brown', 'james.brown@example.com', 'password123', '555-555-5555', '1980-07-20', 'Male', '789 Pine St', 'Thirdtown', 'NY', '10001', 'USA', NOW(), NOW(), FALSE, 'DOCTOR');
-
+    ('John', 'Doe', 'john.doe@example.com', '$2a$10$nxf3XMvgEi3a6wXr85noDOsD697zsYo3QADw6S7pvyXw7qlr8utA2', '123-456-7890', CURRENT_TIMESTAMP, FALSE, 'ADMIN'),
+    ('Alice', 'Smith', 'alice.smith@example.com', '$2a$10$K6wYLy.VIPrbgN2RGobF3.0olhp4KfhtEJ/0qsUicS5PJIQDDpqPm', '098-765-4321', CURRENT_TIMESTAMP, FALSE, 'VET'),
+    ('James', 'Brown', 'james.brown@example.com', '$2a$10$msoZbQSeJUXIxAnATVmd1OS7SDeqj.tTUGCWQVo0rTRj0vh/nsGrm', '555-555-5555', CURRENT_TIMESTAMP, FALSE, 'CLIENT');
 
