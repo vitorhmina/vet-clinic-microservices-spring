@@ -13,7 +13,6 @@ import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -41,7 +40,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<User> getUserById(UUID userId) {
+    public Optional<User> getUserById(String userId) {
         return userRepository.findById(userId);
     }
 
