@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/pet")
 @RequiredArgsConstructor
-@Slf4j  // Lombok annotation for logging
+@Slf4j
 public class PetController {
 
     private final PetService petService;
