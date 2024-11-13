@@ -11,6 +11,8 @@ import org.springframework.web.servlet.function.RequestPredicates;
 import org.springframework.web.servlet.function.RouterFunction;
 import org.springframework.web.servlet.function.ServerResponse;
 
+import static org.springframework.cloud.gateway.server.mvc.filter.FilterFunctions.setPath;
+
 @Configuration
 public class Routes {
 
@@ -36,6 +38,16 @@ public class Routes {
     }
 
     @Bean
+    public RouterFunction<ServerResponse> petServiceSwaggerRoute() {
+        String petServiceUrl = loadBalancerClient.choose(petServiceName).getUri().toString();
+
+        return GatewayRouterFunctions.route("pet_service_swagger")
+                .route(RequestPredicates.path("/aggregate/pet-service/v3/api-docs"), HandlerFunctions.http(petServiceUrl))
+                .filter(setPath("/api-docs"))
+                .build();
+    }
+
+    @Bean
     public RouterFunction<ServerResponse> appointmentServiceRoute() {
         String appointmentServiceUrl = loadBalancerClient.choose(appointmentServiceName).getUri().toString();
 
@@ -45,11 +57,31 @@ public class Routes {
     }
 
     @Bean
+    public RouterFunction<ServerResponse> appointmentServiceSwaggerRoute() {
+        String appointmentServiceUrl = loadBalancerClient.choose(appointmentServiceName).getUri().toString();
+
+        return GatewayRouterFunctions.route("appointment_service_swagger")
+                .route(RequestPredicates.path("/aggregate/appointment-service/v3/api-docs"), HandlerFunctions.http(appointmentServiceUrl))
+                .filter(setPath("/api-docs"))
+                .build();
+    }
+
+    @Bean
     public RouterFunction<ServerResponse> medicalRecordServiceRoute() {
         String medicalRecordServiceUrl = loadBalancerClient.choose(medicalRecordServiceName).getUri().toString();
 
         return GatewayRouterFunctions.route("medical_record_service")
                 .route(RequestPredicates.path("/api/record"), HandlerFunctions.http(medicalRecordServiceUrl))
+                .build();
+    }
+
+    @Bean
+    public RouterFunction<ServerResponse> medicalRecordServiceSwaggerRoute() {
+        String medicalRecordServiceUrl = loadBalancerClient.choose(medicalRecordServiceName).getUri().toString();
+
+        return GatewayRouterFunctions.route("medical_record_service_swagger")
+                .route(RequestPredicates.path("/aggregate/medical-record-service/v3/api-docs"), HandlerFunctions.http(medicalRecordServiceUrl))
+                .filter(setPath("/api-docs"))
                 .build();
     }
 }
