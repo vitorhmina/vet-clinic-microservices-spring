@@ -1,0 +1,33 @@
+global:
+  scrape_interval: 2s
+  evaluation_interval: 2s
+
+scrape_configs:
+  - job_name: 'api-gateway'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['host.docker.internal:9000'] ## only for demo purposes don't use host.docker.internal in production
+  - job_name: 'pet-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['host.docker.internal:8080'] ## only for demo purposes don't use host.docker.internal in production
+        labels:
+          application: 'Pet Service'
+  - job_name: 'appointment-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['host.docker.internal:8081'] ## only for demo purposes don't use host.docker.internal in production
+        labels:
+          application: 'Appointment Service'
+  - job_name: 'medical-record-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['host.docker.internal:8082'] ## only for demo purposes don't use host.docker.internal in production
+        labels:
+          application: 'Medical Record Service'
+  - job_name: 'notification-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['host.docker.internal:8083'] ## only for demo purposes don't use host.docker.internal in production
+        labels:
+          application: 'Notification Service'
