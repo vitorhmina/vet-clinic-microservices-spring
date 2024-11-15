@@ -7,3 +7,5 @@ data
 /.idea
 
 **/target
+
+vet-clinic-microservices-frontend/.vscode
