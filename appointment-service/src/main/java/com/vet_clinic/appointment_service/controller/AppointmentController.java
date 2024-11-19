@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 @RestController
-@RequestMapping("/appointment")
+@RequestMapping("/api/appointment")
 @RequiredArgsConstructor
 public class AppointmentController {
 
@@ -48,11 +49,16 @@ public class AppointmentController {
 
     @PutMapping("/{id}/reschedule")
     public ResponseEntity<AppointmentResponse> rescheduleAppointment(
-            @PathVariable String id, @RequestParam("newTime") String newTime) {
-        LocalDateTime newAppointmentTime = LocalDateTime.parse(newTime);
+            @PathVariable String id, @RequestBody Map<String, String> requestBody) {
+        String newTimeString = requestBody.get("newTime");
+        if (newTimeString == null) {
+            throw new IllegalArgumentException("The request must include a 'newTime' property");
+        }
+        LocalDateTime newAppointmentTime = LocalDateTime.parse(newTimeString);
         AppointmentResponse appointmentResponse = appointmentService.rescheduleAppointment(id, newAppointmentTime);
         return new ResponseEntity<>(appointmentResponse, HttpStatus.OK);
     }
+
 
     @PutMapping("/{id}/cancel")
     public ResponseEntity<AppointmentResponse> cancelAppointment(@PathVariable String id) {

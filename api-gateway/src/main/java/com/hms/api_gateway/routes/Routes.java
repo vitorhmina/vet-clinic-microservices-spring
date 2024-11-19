@@ -38,7 +38,7 @@ public class Routes {
         String petServiceUrl = loadBalancerClient.choose(petServiceName).getUri().toString();
 
         return GatewayRouterFunctions.route("pet_service")
-                .route(RequestPredicates.path("/api/pet"), HandlerFunctions.http(petServiceUrl))
+                .route(RequestPredicates.path("/api/pet/**"), HandlerFunctions.http(petServiceUrl))
                 .filter(CircuitBreakerFilterFunctions.circuitBreaker("petServiceCircuitBreaker",
                         URI.create("forward:/fallbackRoute")))
                 .build();
@@ -61,7 +61,7 @@ public class Routes {
         String appointmentServiceUrl = loadBalancerClient.choose(appointmentServiceName).getUri().toString();
 
         return GatewayRouterFunctions.route("appointment_service")
-                .route(RequestPredicates.path("/api/appointment"), HandlerFunctions.http(appointmentServiceUrl))
+                .route(RequestPredicates.path("/api/appointment/**"), HandlerFunctions.http(appointmentServiceUrl))
                 .filter(CircuitBreakerFilterFunctions.circuitBreaker("appointmentServiceCircuitBreaker",
                         URI.create("forward:/fallbackRoute")))
                 .build();
@@ -84,7 +84,7 @@ public class Routes {
         String medicalRecordServiceUrl = loadBalancerClient.choose(medicalRecordServiceName).getUri().toString();
 
         return GatewayRouterFunctions.route("medical_record_service")
-                .route(RequestPredicates.path("/api/record"), HandlerFunctions.http(medicalRecordServiceUrl))
+                .route(RequestPredicates.path("/api/record/**"), HandlerFunctions.http(medicalRecordServiceUrl))
                 .filter(CircuitBreakerFilterFunctions.circuitBreaker("medicalRecordServiceCircuitBreaker",
                         URI.create("forward:/fallbackRoute")))
                 .build();
