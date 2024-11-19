@@ -1,0 +1,994 @@
+{
+	"info": {
+		"_postman_id": "a7a2a702-5191-49b2-b22b-ee860efa89d2",
+		"name": "Spring Microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32432111"
+	},
+	"item": [
+		{
+			"name": "Pet Service",
+			"item": [
+				{
+					"name": "Create Pet",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "Nvywyt5HYuKSL9Em0xpVjvVPsmJ4XWEn",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Buddy\",\r\n  \"species\": \"Dog\",\r\n  \"age\": 3,\r\n  \"breed\": \"Golden Retriever\",\r\n  \"gender\": \"Male\",\r\n  \"ownerId\": \"user123\",\r\n  \"dateOfBirth\": \"2021-07-15\",\r\n  \"color\": \"Golden\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/pet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Pets",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "0ZnRjfbcxijPxz0sDCRiv9rdYLlGVvBS",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/pet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pet By Id",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "Nvywyt5HYuKSL9Em0xpVjvVPsmJ4XWEn",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/pet/673a3d254f6346412806147b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"pet",
+								"673a3d254f6346412806147b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pet",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "Nvywyt5HYuKSL9Em0xpVjvVPsmJ4XWEn",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Buddy Updated\",\r\n  \"species\": \"Dog\",\r\n  \"age\": 5,\r\n  \"breed\": \"Golden Retriever\",\r\n  \"gender\": \"Male\",\r\n  \"ownerId\": \"user123\",\r\n  \"dateOfBirth\": \"2021-07-15\",\r\n  \"color\": \"Golden\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/pet/673a3d1e4f6346412806147a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"pet",
+								"673a3d1e4f6346412806147a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pet",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "Nvywyt5HYuKSL9Em0xpVjvVPsmJ4XWEn",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/pet/673a3d1e4f6346412806147a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"pet",
+								"673a3d1e4f6346412806147a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Medical Record Service",
+			"item": [
+				{
+					"name": "Create Medical Record",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "Nvywyt5HYuKSL9Em0xpVjvVPsmJ4XWEn",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"petId\": \"12345\",\r\n    \"diagnosis\": \"Canine Parvovirus\",\r\n    \"treatment\": \"Supportive care, hydration\",\r\n    \"prescribedMedications\": [\"Antibiotics\", \"anti-nausea\"],\r\n    \"treatmentDate\": \"2024-11-17\",\r\n    \"vetId\": \"vet123\",\r\n    \"notes\": \"Pet is responding well to treatment\",\r\n    \"isEmergency\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/record",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"record"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Medical Record By Id",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "Nvywyt5HYuKSL9Em0xpVjvVPsmJ4XWEn",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/record/673a42e33ed5220016bf57bf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"record",
+								"673a42e33ed5220016bf57bf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Create Medical Records For Pet",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "Nvywyt5HYuKSL9Em0xpVjvVPsmJ4XWEn",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/record/pet/12345",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"record",
+								"pet",
+								"12345"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Medical Record",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "Nvywyt5HYuKSL9Em0xpVjvVPsmJ4XWEn",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"petId\": \"12345\",\r\n    \"diagnosis\": \"Canine Parvovirus\",\r\n    \"treatment\": \"Supportive care, hydration, additional medication\",\r\n    \"prescribedMedications\": [\"Antibiotics\", \"anti-nausea\", \"steroids\"],\r\n    \"treatmentDate\": \"2024-11-17\",\r\n    \"vetId\": \"vet123\",\r\n    \"notes\": \"Pet is responding well, but requires more treatment\",\r\n    \"isEmergency\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/record/673a42e33ed5220016bf57bf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"record",
+								"673a42e33ed5220016bf57bf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Medical Record",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "Nvywyt5HYuKSL9Em0xpVjvVPsmJ4XWEn",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/record/673a42e33ed5220016bf57bf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"record",
+								"673a42e33ed5220016bf57bf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Appointment Service",
+			"item": [
+				{
+					"name": "Create Appointment",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "Nvywyt5HYuKSL9Em0xpVjvVPsmJ4XWEn",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"petId\": \"6734c0f8c4dfd41c8f670c54\",\r\n  \"vetId\": \"vet123\",\r\n  \"appointmentTime\": \"2024-11-18T11:30:00\",\r\n  \"reason\": \"Routine check-up\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/appointment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"appointment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Appointment By Id",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "Nvywyt5HYuKSL9Em0xpVjvVPsmJ4XWEn",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/appointment/e5cfd41c-2297-4178-863d-6694e67abc3a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"appointment",
+								"e5cfd41c-2297-4178-863d-6694e67abc3a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Appointment Copy",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "Nvywyt5HYuKSL9Em0xpVjvVPsmJ4XWEn",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"newTime\": \"2024-11-20T14:30:00\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9000/api/appointment/e5cfd41c-2297-4178-863d-6694e67abc3a/reschedule",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"appointment",
+								"e5cfd41c-2297-4178-863d-6694e67abc3a",
+								"reschedule"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Appointment",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "Nvywyt5HYuKSL9Em0xpVjvVPsmJ4XWEn",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/appointment/e5cfd41c-2297-4178-863d-6694e67abc3a/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"appointment",
+								"e5cfd41c-2297-4178-863d-6694e67abc3a",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Appointment",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "clientSecret",
+									"value": "Nvywyt5HYuKSL9Em0xpVjvVPsmJ4XWEn",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "backend-client",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "openid roles",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "http://localhost:8181/realms/vet-clinic-microservices-spring/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9000/api/appointment/e5cfd41c-2297-4178-863d-6694e67abc3a/complete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"api",
+								"appointment",
+								"e5cfd41c-2297-4178-863d-6694e67abc3a",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
