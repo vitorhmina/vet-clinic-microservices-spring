@@ -8,5 +8,9 @@ public record AppointmentRequest(
         String vetId,
         LocalDateTime appointmentTime,
         String status,
-        String reason
-) {}
+        String reason,
+        UserDetails userDetails
+) {
+
+    public record UserDetails(String email, String firstName, String lastName) {}
+}

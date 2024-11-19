@@ -63,7 +63,10 @@ public class AppointmentService {
                 appointment.getVetId(),
                 appointment.getAppointmentTime(),
                 appointment.getReason(),
-                appointment.getCreatedAt()
+                appointment.getCreatedAt(),
+                request.userDetails().email(),
+                request.userDetails().firstName(),
+                request.userDetails().lastName()
         );
         createdEventKafkaTemplate.send(APPOINTMENT_CREATED_TOPIC, createdEvent);
 
